@@ -24,11 +24,7 @@ export default function Timer() {
             setSeconds(59)
         }
 
-        // constrain seconds from going beyond 60
-        if (seconds >= 60) {
-            setSeconds(0)
-            setMinutes(prev => parseInt(prev) + 1)
-        }
+
 
 
         // detect when seconds and minutes hit 0
@@ -42,16 +38,21 @@ export default function Timer() {
         }
     }, [seconds, minutes])
 
-    // constraint seconds and minutes from going to negetive
+    // constraint seconds and minutes from going to negetive and beyond 60
     useEffect(() => {
         if (seconds < 0) {
             setSeconds(59)
-            setMinutes(prev => parseInt(prev) - 1)
+            // setMinutes(prev => parseInt(prev) - 1)
             console.log('negatives not allowed!')
         }
         if (minutes < 0) {
             setMinutes(0)
             console.log('negatives not allowed!')
+        }
+        // constrain seconds from going beyond 60
+        if (seconds >= 60) {
+            setSeconds(0)
+            setMinutes(prev => parseInt(prev) + 1)
         }
 
     }, [seconds, minutes])
@@ -73,6 +74,7 @@ export default function Timer() {
         }
 
         setTimerInstance(setInterval(() => {
+
             setSeconds(prevSeconds => prevSeconds - 1)
         }, 1000))
         setIsRunning(true)
