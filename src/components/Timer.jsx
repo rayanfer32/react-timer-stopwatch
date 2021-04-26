@@ -11,7 +11,7 @@ export default function Timer() {
     const audioEl = useRef()
 
     // TODO: improve code to use only seconds
-    // a stupid logic but works ( a better approach wud be to track everything in seconds only .)
+    // currently using a  stupid logic but works ( a better approach wud be to track everything in seconds only .)
     // show minutes from seconds 
 
     // timer logic
@@ -56,12 +56,12 @@ export default function Timer() {
 
     }, [seconds, minutes])
 
+    // stop the timer ticking 
     function stop() {
         clearInterval(timerInstance)
         setIsRunning(false)
         setTimerInstance('')
     }
-
 
     // stuff to set when start button is pressed
     const handleStart = () => {
