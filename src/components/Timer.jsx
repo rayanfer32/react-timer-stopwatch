@@ -10,7 +10,14 @@ export default function Timer() {
     // reference a dom element
     const audioEl = useRef()
 
+    // TODO: improve code to use only seconds
+    // a stupid logic but works ( a better approach wud be to track everything in seconds only .)
+    // show minutes from seconds 
+
+    // timer logic
     useEffect(() => {
+
+        //main logic
         // decrement minutes and set seconds  when only seconds hit 0
         if (seconds <= 0 && minutes > 0 && isRunning) {
             setMinutes(prevMinutes => prevMinutes - 1)
@@ -23,11 +30,6 @@ export default function Timer() {
             setMinutes(prev => parseInt(prev) + 1)
         }
 
-        if (seconds < 0 || minutes < 0) {
-            setSeconds(0)
-            setMinutes(0)
-            console.log('negatives not allowed!')
-        }
 
         // detect when seconds and minutes hit 0
         if (seconds <= 0 && minutes <= 0 && isRunning) {
@@ -38,6 +40,20 @@ export default function Timer() {
             audioEl.current.play()
             // alert('Time Up')
         }
+    }, [seconds, minutes])
+
+    // constraint seconds and minutes from going to negetive
+    useEffect(() => {
+        if (seconds < 0) {
+            setSeconds(59)
+            setMinutes(prev => parseInt(prev) - 1)
+            console.log('negatives not allowed!')
+        }
+        if (minutes < 0) {
+            setMinutes(0)
+            console.log('negatives not allowed!')
+        }
+
     }, [seconds, minutes])
 
     function stop() {
