@@ -6,7 +6,7 @@ export default function Timer() {
     const [minutes, setMinutes] = useState(0);
     const [timerInstance, setTimerInstance] = useState('')
     const [isRunning, setIsRunning] = useState(false)
-
+    const [isBlown, setIsBlown] = useState(false)
     // reference a dom element
     const audioEl = useRef()
 
@@ -24,19 +24,17 @@ export default function Timer() {
             setSeconds(59)
         }
 
-
-
-
         // detect when seconds and minutes hit 0
         if (seconds <= 0 && minutes <= 0 && isRunning) {
             stop()
             setSeconds(0)
             setMinutes(0)
+            setIsBlown(true)
             setIsRunning(false)
             audioEl.current.play()
             // alert('Time Up')
         }
-    }, [seconds, minutes])
+    }, [seconds, minutes, isRunning])
 
     // constraint seconds and minutes from going to negetive and beyond 60
     useEffect(() => {
@@ -77,6 +75,8 @@ export default function Timer() {
 
             setSeconds(prevSeconds => prevSeconds - 1)
         }, 1000))
+
+        setIsBlown(false)
         setIsRunning(true)
     }
 
@@ -86,6 +86,7 @@ export default function Timer() {
         stop()
         setSeconds(0)
         setMinutes(0)
+        setIsBlown(false)
         setIsRunning(false)
         audioEl.current.pause()
         audioEl.current.load()
@@ -94,7 +95,7 @@ export default function Timer() {
     return (
         <div className="timer-container">
             <h1>Timer</h1>
-            <div className="circle">
+            <div className={isBlown ? "circle blown" : "circle"}>
                 <input type="number" className="minutes-input" value={minutes} onChange={(e) => setMinutes(e.target.value)} placeholder="00" />
                 <p>:</p>
                 <input type="number" className="seconds-input" value={seconds} onChange={(e) => setSeconds(e.target.value)} placeholder="00" />
