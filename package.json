@@ -1,11 +1,12 @@
 {
+  "homepage": "https://rayanfer32.github.io/react-timer-stopwatch/",
   "name": "viteapp",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "predeploy": "npm run build",
+    "predeploy": "",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
@@ -17,6 +18,5 @@
     "gh-pages": "^3.1.0",
     "sass": "^1.32.11",
     "vite": "^2.1.5"
-  },
-  "homepage": "http://rayanfer32.github.io/react-timer-stopwatch/"
+  }
 }

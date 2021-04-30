@@ -8,7 +8,7 @@ $primary-color: rgb(20, 139, 124);
 $timer-blown-color: rgb(218, 68, 68);
 $secondary-color: #142e8b;
 $text-light-color: #fef; 
-$highlight-color: rgb(250, 249, 249);
+$highlight-color: rgb(243, 210, 210);
 $auto-clock-font-size: 10vw;
 
 body {
@@ -31,16 +31,14 @@ body {
         // @include stroke(1px white);
     }
 
-    input {
-        padding: 10px;
-        font-family: Overpass;
-        font-size: 1.8rem;
-        border-radius: 10px;
-    }
+    // input {
+    //     padding: 10px;
+    //     font-family: Overpass;
+    //     font-size: 1.8rem;
+    //     border-radius: 10px;
+    // }
 
-    input:focus {
-        outline: 1px dotted grey;
-    }
+
     
     .circle {
         display: flex;
@@ -65,13 +63,30 @@ body {
             // align-items: flex-start;
             // justify-content: flex-start;
             font-size: $auto-clock-font-size;
+            // text-align: right;
             margin-top: 10px;
-            width: 15vw;
+            text-align: center;
+            width: 2.5ch;
             outline: none;
             border: none;
             background: transparent;
-            filter: shadow(1px 1px 2px black);
+            filter: drop-shadow(1px 1px 20px $highlight-color);
             
+        }
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+            }
+
+            /* Firefox */
+            input[type=number] {
+            -moz-appearance: textfield;
+            }
+            
+        input:focus {
+            // border: 1px solid white;
+            // border-radius: 5px;
         }
 
         p {
@@ -79,15 +94,13 @@ body {
         }
 
         .minutes-input {
-            text-align: right;
             color: $text-light-color;
-            left: 10px;
+            // left: 10px;
         }
 
         .seconds-input {
-            text-align: left;
             color: $text-light-color;
-            left: 50px;
+            // left: 10px;
         }
     }
 
