@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import timeUpMp3 from "../assets/time_up.mp3"
+import timeUpS7Mp3 from "../assets/time_up_s7.mp3"
 
 export default function Timer() {
-    const [totalSeconds, setTotalSeconds] = useState(0)
     const [seconds, setSeconds] = useState(0);
     const [minutes, setMinutes] = useState(0);
     const [timerInstance, setTimerInstance] = useState('')
@@ -17,8 +17,6 @@ export default function Timer() {
 
     // timer logic
     useEffect(() => {
-
-        
 
         // decrement minutes and set seconds  when only seconds hit 0
         if (seconds <= -1 && minutes > 0 && isRunning) {
@@ -79,7 +77,6 @@ export default function Timer() {
         }
 
         setTimerInstance(setInterval(() => {
-
             setSeconds(prevSeconds => prevSeconds - 1)
         }, 1000))
 
@@ -109,10 +106,10 @@ export default function Timer() {
             </div>
             <div>
                 <button className="btn start" onClick={handleStart} >{!isRunning ? 'Start' : 'Pause'}</button>
-                <button className={isBlown? "btn reset blown" : "btn reset"} onClick={handleReset}>Reset</button>
+                <button className={isBlown ? "btn reset blown" : "btn reset"} onClick={handleReset}>Reset</button>
             </div>
             <audio ref={audioEl} className="audio-element">
-                <source src={timeUpMp3}></source>
+                <source src={timeUpS7Mp3}></source>
             </audio>
         </div>
     )

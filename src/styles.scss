@@ -15,7 +15,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Overpass;
-    background: linear-gradient(180deg, #cfcd5f, rgb(29, 158, 68));
+    background: linear-gradient(180deg, #ebeade, rgb(208, 221, 212));
 }
 
 .timer-container {
@@ -91,14 +91,17 @@ body {
 
         p {
             font-size: $auto-clock-font-size;
+
         }
 
         .minutes-input {
+            text-align: end;
             color: $text-light-color;
             // left: 10px;
         }
 
         .seconds-input {
+            text-align: start;
             color: $text-light-color;
             // left: 10px;
         }
