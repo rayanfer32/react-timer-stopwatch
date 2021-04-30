@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import timeUpMp3 from "../assets/time_up.mp3"
 import timeUpS7Mp3 from "../assets/time_up_s7.mp3"
+import ClockView from '../components/ClockView';
 
 export default function Timer() {
     const [seconds, setSeconds] = useState(0);
@@ -97,20 +98,18 @@ export default function Timer() {
     }
 
     return (
-        <div className="timer-container">
-            <h1>Timer</h1>
-            <div className={isBlown ? "circle blown" : "circle"}>
-                <input type="number" className="minutes-input" value={minutes} onChange={(e) => setMinutes(e.target.value)} placeholder="00" />
-                <p>:</p>
-                <input type="number" className="seconds-input" value={seconds} onChange={(e) => setSeconds(e.target.value)} placeholder="00" />
-            </div>
-            <div>
-                <button className="btn start" onClick={handleStart} >{!isRunning ? 'Start' : 'Pause'}</button>
-                <button className={isBlown ? "btn reset blown" : "btn reset"} onClick={handleReset}>Reset</button>
-            </div>
+        <>
+            {/* minutes={minutes} seconds={seconds} isBlown={isBlown} isRunning={isRunning} */}
+            <ClockView 
+                props={{ minutes, seconds, isRunning, isBlown }} 
+                setMinutes={(t) => setMinutes(t)} 
+                setSeconds={(t) => setSeconds(t)} 
+                handleReset={handleReset} 
+                handleStart={handleStart}>
+            </ClockView>
             <audio ref={audioEl} className="audio-element">
                 <source src={timeUpS7Mp3}></source>
             </audio>
-        </div>
+        </>
     )
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Overpass');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 
 
 // @mixin stroke($param) {
@@ -11,14 +11,26 @@ $text-light-color: #fef;
 $highlight-color: rgb(243, 210, 210);
 $auto-clock-font-size: 10vw;
 
+
+* {
+    font-family: "Roboto Condensed";
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-family: Overpass;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: linear-gradient(180deg, #ebeade, rgb(208, 221, 212));
 }
 
-.timer-container {
+.timer-stopwatch-toggle {
+    padding: 10px;
+    
+}
+
+.clock-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,14 +42,6 @@ body {
         margin: 10px;
         // @include stroke(1px white);
     }
-
-    // input {
-    //     padding: 10px;
-    //     font-family: Overpass;
-    //     font-size: 1.8rem;
-    //     border-radius: 10px;
-    // }
-
 
     
     .circle {
@@ -84,10 +88,10 @@ body {
             -moz-appearance: textfield;
             }
             
-        input:focus {
-            // border: 1px solid white;
-            // border-radius: 5px;
-        }
+        // input:focus {
+        //     // border: 1px solid white;
+        //     // border-radius: 5px;
+        // }
 
         p {
             font-size: $auto-clock-font-size;
@@ -95,13 +99,13 @@ body {
         }
 
         .minutes-input {
-            text-align: end;
+            // text-align: end;
             color: $text-light-color;
             // left: 10px;
         }
 
         .seconds-input {
-            text-align: start;
+            // text-align: start;
             color: $text-light-color;
             // left: 10px;
         }
@@ -117,14 +121,10 @@ body {
         margin: 20px;
         padding: 10px;
         color: $highlight-color;
-        font-family: 'Overpass';
         background-color: $secondary-color;
         border-radius: 5px;
         box-shadow: 0px 0px 50px $secondary-color;
         font-size: 2rem;
-    
-        
-    
     }
 
     .btn.reset.blown {
