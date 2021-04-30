@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Overpass');
 
+
+// @mixin stroke($param) {
+//     -webkit-text-stroke: $param;
+// }
 $primary-color: rgb(20, 139, 124);
 $timer-blown-color: rgb(218, 68, 68);
 $secondary-color: #142e8b;
@@ -11,6 +15,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Overpass;
+    background: linear-gradient(180deg, #cfcd5f, rgb(29, 158, 68));
 }
 
 .timer-container {
@@ -19,9 +24,11 @@ body {
     align-items: center;
     font-size: 2rem;
     flex-direction: column;
+    height: 100vh;
 
     h1 {
         margin: 10px;
+        // @include stroke(1px white);
     }
 
     input {
