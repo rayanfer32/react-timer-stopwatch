@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import timeUpMp3 from "../assets/time_up.mp3"
 
 export default function Timer() {
+    const [totalSeconds, setTotalSeconds] = useState(0)
     const [seconds, setSeconds] = useState(0);
     const [minutes, setMinutes] = useState(0);
     const [timerInstance, setTimerInstance] = useState('')
@@ -10,18 +11,24 @@ export default function Timer() {
     // reference a dom element
     const audioEl = useRef()
 
-    // TODO: improve code to use only seconds
+    // TODO: improve code to use only total seconds
     // currently using a  stupid logic but works ( a better approach wud be to track everything in seconds only .)
     // show minutes from seconds 
 
     // timer logic
     useEffect(() => {
 
-        //main logic
+        
+
         // decrement minutes and set seconds  when only seconds hit 0
-        if (seconds <= 0 && minutes > 0 && isRunning) {
+        if (seconds <= -1 && minutes > 0 && isRunning) {
+            // here timer should wait 1 sec before setting seconds to 59 
+            // bcz as seconds hit 0 it doesnt wait for 1 sec to show it .. it directly sets seconds to 59 
+
+            // Fix : instead of checking for seconds to hit 0 check if seconds hit -1
             setMinutes(prevMinutes => prevMinutes - 1)
             setSeconds(59)
+
         }
 
         // detect when seconds and minutes hit 0
@@ -38,11 +45,11 @@ export default function Timer() {
 
     // constraint seconds and minutes from going to negetive and beyond 60
     useEffect(() => {
-        if (seconds < 0) {
-            setSeconds(59)
-            // setMinutes(prev => parseInt(prev) - 1)
-            console.log('negatives not allowed!')
-        }
+        // if (seconds < 0) {
+        //     setSeconds(0)
+        //     // setMinutes(prev => parseInt(prev) - 1)
+        //     console.log('negatives not allowed!')
+        // }
         if (minutes < 0) {
             setMinutes(0)
             console.log('negatives not allowed!')
@@ -101,8 +108,8 @@ export default function Timer() {
                 <input type="number" className="seconds-input" value={seconds} onChange={(e) => setSeconds(e.target.value)} placeholder="00" />
             </div>
             <div>
-                <button className="btn-start" onClick={handleStart} >{!isRunning ? 'Start' : 'Pause'}</button>
-                <button className="btn-reset" onClick={handleReset}>Reset</button>
+                <button className="btn start" onClick={handleStart} >{!isRunning ? 'Start' : 'Pause'}</button>
+                <button className={isBlown? "btn reset blown" : "btn reset"} onClick={handleReset}>Reset</button>
             </div>
             <audio ref={audioEl} className="audio-element">
                 <source src={timeUpMp3}></source>

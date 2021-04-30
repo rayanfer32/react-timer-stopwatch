@@ -5,6 +5,7 @@ $timer-blown-color: rgb(218, 68, 68);
 $secondary-color: #142e8b;
 $text-light-color: #fef; 
 $highlight-color: rgb(250, 249, 249);
+$auto-clock-font-size: 10vw;
 
 body {
     margin: 0;
@@ -48,7 +49,7 @@ body {
         font-size: 5rem;
         // border: 5px solid #333;
         margin-bottom: 20px;
-        text-align: center;
+        // text-align: center;
         box-shadow: 0px 0px 50px $primary-color;
 
         input {
@@ -56,24 +57,30 @@ body {
             // position: absolute;
             // align-items: flex-start;
             // justify-content: flex-start;
-            font-size: 1em;
+            font-size: $auto-clock-font-size;
             margin-top: 10px;
             width: 15vw;
             outline: none;
             border: none;
             background: transparent;
+            filter: shadow(1px 1px 2px black);
             
+        }
+
+        p {
+            font-size: $auto-clock-font-size;
         }
 
         .minutes-input {
             text-align: right;
-            color: $highlight-color;
+            color: $text-light-color;
             left: 10px;
         }
 
         .seconds-input {
             text-align: left;
             color: $text-light-color;
+            left: 50px;
         }
     }
 
@@ -92,6 +99,15 @@ body {
         border-radius: 5px;
         box-shadow: 0px 0px 50px $secondary-color;
         font-size: 2rem;
+    
+        
+    
     }
+
+    .btn.reset.blown {
+        background: $timer-blown-color;
+        box-shadow: 0px 0px 50px $timer-blown-color;
+    }
+
 
 }
