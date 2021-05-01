@@ -6,10 +6,10 @@ export default function App() {
 
     const [timerMode, setTimerMode] = useState(true)
     return (
-        <>
+        <div className="app">
             <button className="timer-stopwatch-toggle" onClick={() => setTimerMode(prevState => !prevState)}>{timerMode ? "Timer":"Stopwatch"}</button>
-            {timerMode ? <Timer /> : <Stopwatch />  }
+            {timerMode ?   <Stopwatch /> : <Timer />  }
             
-        </>
+        </div>
     )
 }

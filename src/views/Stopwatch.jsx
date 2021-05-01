@@ -56,11 +56,11 @@ export default function Stopwatch() {
         setMinutes(0)
         setIsBlown(false)
         setIsRunning(false)
-        audioEl.current.pause()
-        audioEl.current.load()
     }
 
     return (
+        <>
+        <h1>Stopwatch</h1>
         <ClockView 
             props={{ minutes, seconds, isRunning, isBlown }} 
             setMinutes={(t) => setMinutes(t)} 
@@ -68,5 +68,6 @@ export default function Stopwatch() {
             handleReset={handleReset} 
             handleStart={handleStart}>
         </ClockView>
+        </>
     )
 }

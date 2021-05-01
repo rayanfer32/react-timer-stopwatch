@@ -99,7 +99,7 @@ export default function Timer() {
 
     return (
         <>
-            {/* minutes={minutes} seconds={seconds} isBlown={isBlown} isRunning={isRunning} */}
+            <h1 >Timer</h1>
             <ClockView 
                 props={{ minutes, seconds, isRunning, isBlown }} 
                 setMinutes={(t) => setMinutes(t)} 

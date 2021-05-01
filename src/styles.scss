@@ -13,7 +13,10 @@ $auto-clock-font-size: 10vw;
 
 
 * {
-    font-family: "Roboto Condensed";
+    font-family: 'Roboto Condensed';
+}
+*, *:before, *:after {
+    box-sizing: border-box;
 }
 
 body {
@@ -25,14 +28,24 @@ body {
     background: linear-gradient(180deg, #ebeade, rgb(208, 221, 212));
 }
 
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2vh;
+}
+
+
 .timer-stopwatch-toggle {
     padding: 10px;
-    
+    font-size: 2rem;
+    cursor: pointer;
 }
 
 .clock-container {
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
     font-size: 2rem;
     flex-direction: column;
@@ -109,6 +122,8 @@ body {
             color: $text-light-color;
             // left: 10px;
         }
+
+        
     }
 
     .circle.blown {
