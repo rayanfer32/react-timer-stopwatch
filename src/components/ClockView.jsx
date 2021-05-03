@@ -12,7 +12,7 @@ export default function ClockView({ props, setMinutes,setSeconds, handleStart, h
             <input type="number" className="seconds-input" value={seconds} onChange={(e) => setSeconds(e.target.value)} placeholder="00" />
         </div>
         <div>
-            <button className="btn start" onClick={handleStart} >{!isRunning ? 'Start' : 'Pause'}</button>
+            <button className={isRunning ? "btn reset blown" : "btn start"} onClick={handleStart} >{!isRunning ? 'Start' : 'Pause'}</button>
             <button className={isBlown ? "btn reset blown" : "btn reset"} onClick={handleReset}>Reset</button>
         </div>
     </div>
