@@ -11,6 +11,22 @@ $text-light-color: rgb(248, 248, 248);
 $highlight-color: rgb(255, 255, 255);
 $auto-clock-font-size: 10vw;
 
+@mixin custom_button(){
+    border: none;
+    margin: 20px;
+    padding: 10px;
+    color: $highlight-color;
+    background-color: $secondary-color;
+    border-radius: 5px;
+    box-shadow: 0px 0px 50px $secondary-color;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+@mixin custom_button_hover {
+    margin: 15px;
+    padding: 15px;
+}
 
 * {
     font-family: 'Roboto Condensed';
@@ -44,9 +60,10 @@ body {
 
 
 .timer-stopwatch-toggle {
-    padding: 5px;
-    font-size: 1rem;
-    cursor: pointer;
+    @include custom_button();
+}
+.timer-stopwatch-toggle:hover {
+    @include custom_button_hover();
 }
 
 .clock-container {
@@ -135,19 +152,11 @@ body {
     }
 
     button {
-        border: none;
-        margin: 20px;
-        padding: 10px;
-        color: $highlight-color;
-        background-color: $secondary-color;
-        border-radius: 5px;
-        box-shadow: 0px 0px 50px $secondary-color;
-        font-size: 2rem;
-        cursor: pointer;
+        @include custom_button();
     }
 
     button:hover {
-        padding: 16px;
+        @include custom_button_hover();
     }
 
     .btn.reset.blown {
