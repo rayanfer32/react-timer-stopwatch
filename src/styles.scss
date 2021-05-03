@@ -7,8 +7,8 @@
 $primary-color: rgb(20, 139, 124);
 $timer-blown-color: rgb(218, 68, 68);
 $secondary-color: #142e8b;
-$text-light-color: #fef; 
-$highlight-color: rgb(243, 210, 210);
+$text-light-color: rgb(248, 248, 248); 
+$highlight-color: rgb(255, 255, 255);
 $auto-clock-font-size: 10vw;
 
 
@@ -25,7 +25,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(180deg, #ebeade, rgb(208, 221, 212));
+    background: linear-gradient(180deg, #fcfcfc, #ffffff);
 }
 
 .app {
@@ -34,12 +34,18 @@ body {
     align-items: center;
     flex-direction: column;
     margin-top: 2vh;
+
+    h1 {
+        font-size: 3rem;
+        margin: 10px;
+        // @include stroke(1px white);
+    }
 }
 
 
 .timer-stopwatch-toggle {
-    padding: 10px;
-    font-size: 2rem;
+    padding: 5px;
+    font-size: 1rem;
     cursor: pointer;
 }
 
@@ -51,10 +57,7 @@ body {
     flex-direction: column;
     height: 100vh;
 
-    h1 {
-        margin: 10px;
-        // @include stroke(1px white);
-    }
+    
 
     
     .circle {
@@ -141,6 +144,10 @@ body {
         box-shadow: 0px 0px 50px $secondary-color;
         font-size: 2rem;
         cursor: pointer;
+    }
+
+    button:hover {
+        padding: 16px;
     }
 
     .btn.reset.blown {
