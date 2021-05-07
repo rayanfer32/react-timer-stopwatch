@@ -5,8 +5,8 @@ import ClockView from '../components/ClockView';
 
 export default function Timer() {
     const [seconds, setSeconds] = useState(0);
-    const [minutes, setMinutes] = useState(0);
-    const [timerInstance, setTimerInstance] = useState('')
+    const [minutes, setMinutes] = useState(5);
+    const [timerInstance, setTimerInstance] = useState(null)
     const [isRunning, setIsRunning] = useState(false)
     const [isBlown, setIsBlown] = useState(false)
     // reference a dom element
