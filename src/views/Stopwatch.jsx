@@ -60,7 +60,7 @@ export default function Stopwatch() {
 
     return (
         <>
-        <h1>Stopwatch</h1>
+        {/* <h1>Stopwatch</h1> */}
         <ClockView 
             props={{ minutes, seconds, isRunning, isBlown }} 
             setMinutes={(t) => setMinutes(t)} 
