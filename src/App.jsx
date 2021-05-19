@@ -22,7 +22,7 @@ export default function App() {
             </div>
             {timerMode ?  <Timer /> : <Stopwatch />}
             <Footer>
-            Designed by: <a href="https://github.com/Rayanfer32/react-timer-stopwatch">Rayanfer32</a>
+            Designed by: <a href="https://github.com/Rayanfer32/react-timer-stopwatch">ayanfer32</a>
             </Footer>
         </div>
     )
