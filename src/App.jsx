@@ -20,7 +20,7 @@ export default function App() {
                 </div>
             </div>
             {/* <button className="timer-stopwatch-toggle" onClick={() => setTimerMode(prevState => !prevState)}>{timerMode ? "Timer":"Stopwatch"}</button> */}
-            {timerMode ?  <Timer /> : <Stopwatch /> :}
+            {timerMode ?  <Timer /> : <Stopwatch />}
 
         </div>
     )
