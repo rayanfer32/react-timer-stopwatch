@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import timeUpMp3 from "../assets/time_up.mp3"
 import timeUpS7Mp3 from "../assets/time_up_s7.mp3"
+import alertOnCall from "../assets/alert_on_call.mp3"
 import ClockView from '../components/ClockView';
 
 export default function Timer() {
@@ -97,6 +98,11 @@ export default function Timer() {
         audioEl.current.load()
     }
 
+    const handleAudioEnded = () => {
+        console.log("Audio Ended.. replaying")
+        audioEl.current.play()
+    }
+
     return (
         <>
             {/* <h1 >Timer</h1> */}
@@ -107,8 +113,10 @@ export default function Timer() {
                 handleReset={handleReset} 
                 handleStart={handleStart}>
             </ClockView>
-            <audio ref={audioEl} className="audio-element">
-                <source src={timeUpS7Mp3}></source>
+            <audio ref={audioEl} className="audio-element"
+                onEnded={handleAudioEnded}
+            >
+                <source src={alertOnCall}></source>
             </audio>
         </>
     )
