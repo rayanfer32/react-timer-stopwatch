@@ -9,12 +9,12 @@ export default function App() {
         <div className="app">
             <div className="menu-bar">
                 <div
-                    className={!timerMode ? "active" : null}
+                    className={timerMode ? "active" : null}
                     onClick={() => setTimerMode(true)}>
                     Timer
                     </div>
                 <div
-                    className={timerMode ? "active" : null}
+                    className={!timerMode ? "active" : null}
                     onClick={() => setTimerMode(false)}>
                     Stopwatch
                 </div>
