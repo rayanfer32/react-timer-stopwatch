@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Footer from './components/Footer'
 import Stopwatch from './views/Stopwatch'
 import Timer from './views/Timer'
 
@@ -19,9 +20,10 @@ export default function App() {
                     Stopwatch
                 </div>
             </div>
-            {/* <button className="timer-stopwatch-toggle" onClick={() => setTimerMode(prevState => !prevState)}>{timerMode ? "Timer":"Stopwatch"}</button> */}
             {timerMode ?  <Timer /> : <Stopwatch />}
-
+            <Footer>
+            Designed by: <a href="https://github.com/Rayanfer32/react-timer-stopwatch">Rayanfer32</a>
+            </Footer>
         </div>
     )
 }
