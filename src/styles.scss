@@ -5,8 +5,10 @@
 //     -webkit-text-stroke: $param;
 // }
 $primary-color: rgb(20, 139, 124);
+$primary-dark: #148b7c;
 $timer-blown-color: rgb(218, 68, 68);
-$secondary-color: #1f346e;
+$secondary-color: #486fc2;
+$text-dark: rgb(27, 27, 27);
 $text-light-color: rgb(248, 248, 248); 
 $highlight-color: rgb(255, 255, 255);
 $auto-clock-font-size: 4rem;
@@ -68,7 +70,7 @@ body {
         border: 2px solid $primary-color;
         padding: 1rem;
         border-radius: 999px;
-        box-shadow: 0px 0px 10px inset $primary-color;
+        box-shadow: 0px 0px 10px inset $primary-dark;
 
         .active {
             // font-size: 3rem;
@@ -103,8 +105,8 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        color: $text-light-color;
-        background-color: $primary-color;
+        color: $text-dark;
+        // background-color: $primary-color;
         width: 1rem;
         height: 1rem;
         min-width: 200px;
@@ -114,7 +116,8 @@ body {
         // border: 5px solid #333;
         margin-bottom: 20px;
         // text-align: center;
-        box-shadow: 0px 0px 50px $primary-color;
+        border: 10px solid $primary-dark;
+        box-shadow: 0px 0px 10px inset $primary-dark;
 
         input {
             display: flex;
@@ -155,13 +158,13 @@ body {
 
         .minutes-input {
             // text-align: end;
-            color: $text-light-color;
+            color: $text-dark;
             // left: 10px;
         }
 
         .seconds-input {
             // text-align: start;
-            color: $text-light-color;
+            color: $text-dark;
             // left: 10px;
         }
 
